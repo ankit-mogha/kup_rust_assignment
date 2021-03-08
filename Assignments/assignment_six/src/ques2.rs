@@ -1,31 +1,72 @@
 #[derive(PartialEq, Debug)]
 ///Ip Enum
 ///
-/// this enum have five variants
+/// Ip enum have five variants
 ///
-/// ClassA,ClassB,ClassC,ClassD,Error
+/// ClassA : includes a single String.
+/// ClassB : includes a single String.
+/// ClassC : includes a single String.
+/// ClassD : includes a single String.
+/// Error : includes a single String.
 pub enum Ip {
-    ClassA(i32, i32, i32, i32),
-    ClassB(i32, i32, i32, i32),
-    ClassC(i32, i32, i32, i32),
-    ClassD(i32, i32, i32, i32),
-    Error,
+    ClassA(String),
+    ClassB(String),
+    ClassC(String),
+    ClassD(String),
+    Error(String),
 }
-/// This function matches the pattern.
+/// ques2_fn function matches the pattern.
 ///
 /// #Arguments
 ///
-/// tuple
+/// adder(tuple) : have Ip address in it.
 ///
 /// #Return
 ///
-/// Returns Ip Type
+/// Returns Ip(Enum) Type.
 pub fn ques2_fn(adder: (i32, i32, i32, i32)) -> Ip {
+    let mut result:String = String::new();
     match adder {
-        (0, a, b, c) => Ip::ClassA(0, a, b, c),
-        (128, a, b, c) => Ip::ClassB(128, a, b, c),
-        (192, a, b, c) => Ip::ClassC(192, a, b, c),
-        (224, a, b, c) => Ip::ClassD(224, a, b, c),
-        _ => Ip::Error,
+        (a, b, c, d) if a > -1 && a < 128 => {
+            result.push_str(&a.to_string());
+            result.push_str(".");
+            result.push_str(&b.to_string());
+            result.push_str(".");
+            result.push_str(&c.to_string());
+            result.push_str(".");
+            result.push_str(&d.to_string());
+            Ip::ClassA(String::from(result))
+        }
+        (a, b, c, d) if a > 127 && a < 191 => {
+            result.push_str(&a.to_string());
+            result.push_str(".");
+            result.push_str(&b.to_string());
+            result.push_str(".");
+            result.push_str(&c.to_string());
+            result.push_str(".");
+            result.push_str(&d.to_string());
+            Ip::ClassB(String::from(result))
+        }
+        (a, b, c, d) if a > 191 && a < 223 => {
+            result.push_str(&a.to_string());
+            result.push_str(".");
+            result.push_str(&b.to_string());
+            result.push_str(".");
+            result.push_str(&c.to_string());
+            result.push_str(".");
+            result.push_str(&d.to_string());
+            Ip::ClassC(String::from(result))
+        }
+        (a, b, c, d) if a > 223 && a < 239 => {
+            result.push_str(&a.to_string());
+            result.push_str(".");
+            result.push_str(&b.to_string());
+            result.push_str(".");
+            result.push_str(&c.to_string());
+            result.push_str(".");
+            result.push_str(&d.to_string());
+            Ip::ClassD(String::from(result))
+        }
+        _ => Ip::Error(String::from("Invalid Ip Address")),
     }
 }

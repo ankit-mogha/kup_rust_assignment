@@ -1,48 +1,57 @@
 #[derive(PartialEq, Debug)]
-///Quadrants Enum
+///Quadrants Enum.
 ///
-/// this enum have six variants
+/// Quadrants enum have six variants.
 ///
-/// First,Second,Third,Fourth,Origin,Error
+/// First : includes an anonymous struct inside it.
+/// Second : includes an anonymous struct inside it.
+/// Third : includes an anonymous struct inside it.
+/// Fourth : includes an anonymous struct inside it.
+/// Origin : includes an anonymous struct inside it.
+/// Axis : includes an anonymous struct inside it.
+
 pub enum Quadrants {
     First { abscissa: i32, ordinate: i32 },
     Second { abscissa: i32, ordinate: i32 },
     Third { abscissa: i32, ordinate: i32 },
     Fourth { abscissa: i32, ordinate: i32 },
     Origin { abscissa: i32, ordinate: i32 },
-    Error,
+    Axis { abscissa: i32, ordinate: i32 },
 }
-/// This function matches the pattern.
+/// ques1_fn function matches the pattern and check if .
 ///
 /// #Arguments
 ///
-/// tuple
+/// pts(tuple) : pts have coordinate(x,y) value in it.
 ///
 /// #Return
 ///
-/// Returns Quadrants type
+/// Returns Quadrants(Enum) type
 pub fn ques1_fn(pts: (i32, i32)) -> Quadrants {
     match pts {
-        (2, 2) => Quadrants::First {
+        (x, y) if x > 0 && y > 0 => Quadrants::First {
+            abscissa: x,
+            ordinate: y,
+        },
+        (x, y) if x < 0 && y > 0 => Quadrants::Second {
+            abscissa: x,
+            ordinate: y,
+        },
+        (x, y) if x < 0 && y < 0 => Quadrants::Third {
+            abscissa: x,
+            ordinate: y,
+        },
+        (x, y) if x > 0 && y < 0 => Quadrants::Fourth {
+            abscissa: x,
+            ordinate: y,
+        },
+        (x, y) if x == 0 && y == 0 => Quadrants::Origin {
+            abscissa: x,
+            ordinate: y,
+        },
+        _ => Quadrants::Axis {
             abscissa: pts.0,
             ordinate: pts.1,
         },
-        (-2, 2) => Quadrants::Second {
-            abscissa: pts.0,
-            ordinate: pts.1,
-        },
-        (-2, -2) => Quadrants::Third {
-            abscissa: pts.0,
-            ordinate: pts.1,
-        },
-        (2, -2) => Quadrants::Fourth {
-            abscissa: pts.0,
-            ordinate: pts.1,
-        },
-        (0, 0) => Quadrants::Origin {
-            abscissa: pts.0,
-            ordinate: pts.1,
-        },
-        _ => Quadrants::Error,
     }
 }

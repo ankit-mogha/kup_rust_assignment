@@ -3,7 +3,7 @@ mod ques2;
 #[allow(unused_imports)]
 mod test;
 
-pub fn func_test() -> bool {
+pub fn main_func() -> bool {
     let points: (i32, i32) = (2, -2);
     ques1::ques1_fn(points);
 
