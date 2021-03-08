@@ -1,6 +1,5 @@
 mod ques1;
 mod ques2;
-#[allow(unused_imports)]
 mod test;
 
 pub fn main_func() -> bool {
