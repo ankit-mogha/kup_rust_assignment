@@ -29,43 +29,43 @@ pub fn ques2_fn(adder: (i32, i32, i32, i32)) -> Ip {
     match adder {
         (a, b, c, d) if a > -1 && a < 128 => {
             result.push_str(&a.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&b.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&c.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&d.to_string());
-            Ip::ClassA(String::from(result))
+            Ip::ClassA(result)
         }
         (a, b, c, d) if a > 127 && a < 191 => {
             result.push_str(&a.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&b.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&c.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&d.to_string());
-            Ip::ClassB(String::from(result))
+            Ip::ClassB(result)
         }
         (a, b, c, d) if a > 191 && a < 223 => {
             result.push_str(&a.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&b.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&c.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&d.to_string());
-            Ip::ClassC(String::from(result))
+            Ip::ClassC(result)
         }
         (a, b, c, d) if a > 223 && a < 239 => {
             result.push_str(&a.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&b.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&c.to_string());
-            result.push_str(".");
+            result.push_str(&".".to_string());
             result.push_str(&d.to_string());
-            Ip::ClassD(String::from(result))
+            Ip::ClassD(result)
         }
         _ => Ip::Error(String::from("Invalid Ip Address")),
     }
