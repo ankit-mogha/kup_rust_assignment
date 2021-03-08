@@ -18,7 +18,7 @@ pub enum Quadrants {
     Origin { abscissa: i32, ordinate: i32 },
     Axis { abscissa: i32, ordinate: i32 },
 }
-/// ques1_fn function matches the pattern and check if .
+/// ques1_fn function checks on which quadrants the points lies.
 ///
 /// #Arguments
 ///

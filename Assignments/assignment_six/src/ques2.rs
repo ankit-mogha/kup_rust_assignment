@@ -15,7 +15,7 @@ pub enum Ip {
     ClassD(String),
     Error(String),
 }
-/// ques2_fn function matches the pattern.
+/// ques2_fn function checks in which Ip class the following IP address belongs.
 ///
 /// #Arguments
 ///
@@ -25,7 +25,7 @@ pub enum Ip {
 ///
 /// Returns Ip(Enum) Type.
 pub fn ques2_fn(adder: (i32, i32, i32, i32)) -> Ip {
-    let mut result:String = String::new();
+    let mut result: String = String::new();
     match adder {
         (a, b, c, d) if a > -1 && a < 128 => {
             result.push_str(&a.to_string());
