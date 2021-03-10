@@ -1,5 +1,5 @@
 [package]
-name = "Sample-Assignment"
+name = "sample-assignment"
 version = "0.1.0"
 authors = ["ksr30 <krishna.singh9926@gmail.com>"]
 edition = "2018"
