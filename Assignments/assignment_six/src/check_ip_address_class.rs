@@ -1,7 +1,7 @@
 #[derive(PartialEq, Debug)]
 ///Ip Enum
 ///
-/// Ip enum have five variants
+/// #variants
 ///
 /// ClassA : includes a single String.
 /// ClassB : includes a single String.
@@ -15,7 +15,7 @@ pub enum Ip {
     ClassD(String),
     Error(String),
 }
-/// ques2_fn function checks in which Ip class the following IP address belongs.
+/// check_ip_address function checks in which Ip class the following IP address belongs.
 ///
 /// #Arguments
 ///
@@ -24,7 +24,7 @@ pub enum Ip {
 /// #Return
 ///
 /// Returns Ip(Enum) Type.
-pub fn ques2_fn(adder: (i32, i32, i32, i32)) -> Ip {
+pub fn check_ip_address(adder: (i32, i32, i32, i32)) -> Ip {
     let mut result: String = String::new();
     match adder {
         (a, b, c, d) if a > -1 && a < 128 => {

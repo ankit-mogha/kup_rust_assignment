@@ -1,13 +1,13 @@
-mod ques1;
-mod ques2;
+mod check_coordinates;
+mod check_ip_address_class;
 mod test;
 
 pub fn main_func() -> bool {
     let points: (i32, i32) = (2, -2);
-    ques1::ques1_fn(points);
+    check_coordinates::check_coordinates_quadrant(points);
 
     let add: (i32, i32, i32, i32) = (192, 0, 1, 1);
-    ques2::ques2_fn(add);
+    check_ip_address_class::check_ip_address(add);
 
     true
 }

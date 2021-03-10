@@ -2,10 +2,10 @@ pub mod tests {
 
     #[test]
     fn check_for_fourth_quadrant() {
-        use crate::ques1::{ques1_fn, Quadrants};
+        use crate::check_coordinates::{check_coordinates_quadrant, Quadrants};
         let points: (i32, i32) = (2, -2);
         assert_eq!(
-            ques1_fn(points),
+            check_coordinates_quadrant(points),
             Quadrants::Fourth {
                 abscissa: 2,
                 ordinate: -2
@@ -15,10 +15,10 @@ pub mod tests {
 
     #[test]
     fn check_for_first_quadrant() {
-        use crate::ques1::{ques1_fn, Quadrants};
+        use crate::check_coordinates::{check_coordinates_quadrant, Quadrants};
         let points: (i32, i32) = (2, 2);
         assert_eq!(
-            ques1_fn(points),
+            check_coordinates_quadrant(points),
             Quadrants::First {
                 abscissa: 2,
                 ordinate: 2
@@ -28,10 +28,10 @@ pub mod tests {
 
     #[test]
     fn check_for_second_quadrant() {
-        use crate::ques1::{ques1_fn, Quadrants};
+        use crate::check_coordinates::{check_coordinates_quadrant, Quadrants};
         let points: (i32, i32) = (-2, 2);
         assert_eq!(
-            ques1_fn(points),
+            check_coordinates_quadrant(points),
             Quadrants::Second {
                 abscissa: -2,
                 ordinate: 2
@@ -41,10 +41,10 @@ pub mod tests {
 
     #[test]
     fn check_for_third_quadrant() {
-        use crate::ques1::{ques1_fn, Quadrants};
+        use crate::check_coordinates::{check_coordinates_quadrant, Quadrants};
         let points: (i32, i32) = (-2, -2);
         assert_eq!(
-            ques1_fn(points),
+            check_coordinates_quadrant(points),
             Quadrants::Third {
                 abscissa: -2,
                 ordinate: -2
@@ -54,10 +54,10 @@ pub mod tests {
 
     #[test]
     fn check_for_origin() {
-        use crate::ques1::{ques1_fn, Quadrants};
+        use crate::check_coordinates::{check_coordinates_quadrant, Quadrants};
         let points: (i32, i32) = (0, 0);
         assert_eq!(
-            ques1_fn(points),
+            check_coordinates_quadrant(points),
             Quadrants::Origin {
                 abscissa: 0,
                 ordinate: 0
@@ -67,10 +67,10 @@ pub mod tests {
 
     #[test]
     fn point_on_axis() {
-        use crate::ques1::{ques1_fn, Quadrants};
+        use crate::check_coordinates::{check_coordinates_quadrant, Quadrants};
         let points: (i32, i32) = (0, 1);
         assert_eq!(
-            ques1_fn(points),
+            check_coordinates_quadrant(points),
             Quadrants::Axis {
                 abscissa: 0,
                 ordinate: 1
@@ -80,41 +80,44 @@ pub mod tests {
 
     #[test]
     fn check_address_class_a() {
-        use crate::ques2::{ques2_fn, Ip};
+        use crate::check_ip_address_class::{check_ip_address, Ip};
         let add: (i32, i32, i32, i32) = (0, 0, 1, 1);
         let ip: String = "0.0.1.1".to_string();
-        assert_eq!(ques2_fn(add), Ip::ClassA(ip));
+        assert_eq!(check_ip_address(add), Ip::ClassA(ip));
     }
 
     #[test]
     fn check_address_class_b() {
-        use crate::ques2::{ques2_fn, Ip};
+        use crate::check_ip_address_class::{check_ip_address, Ip};
         let add: (i32, i32, i32, i32) = (128, 0, 1, 1);
         let ip: String = "128.0.1.1".to_string();
-        assert_eq!(ques2_fn(add), Ip::ClassB(ip));
+        assert_eq!(check_ip_address(add), Ip::ClassB(ip));
     }
 
     #[test]
     fn check_address_class_c() {
-        use crate::ques2::{ques2_fn, Ip};
+        use crate::check_ip_address_class::{check_ip_address, Ip};
         let add: (i32, i32, i32, i32) = (192, 0, 1, 1);
         let ip: String = "192.0.1.1".to_string();
-        assert_eq!(ques2_fn(add), Ip::ClassC(ip));
+        assert_eq!(check_ip_address(add), Ip::ClassC(ip));
     }
 
     #[test]
     fn check_address_class_d() {
-        use crate::ques2::{ques2_fn, Ip};
+        use crate::check_ip_address_class::{check_ip_address, Ip};
         let add: (i32, i32, i32, i32) = (224, 0, 1, 1);
         let ip: String = "224.0.1.1".to_string();
-        assert_eq!(ques2_fn(add), Ip::ClassD(ip));
+        assert_eq!(check_ip_address(add), Ip::ClassD(ip));
     }
 
     #[test]
     fn check_if_invalid() {
-        use crate::ques2::{ques2_fn, Ip};
+        use crate::check_ip_address_class::{check_ip_address, Ip};
         let add: (i32, i32, i32, i32) = (-1, 0, 1, 1);
-        assert_eq!(ques2_fn(add), Ip::Error("Invalid Ip Address".to_string()));
+        assert_eq!(
+            check_ip_address(add),
+            Ip::Error("Invalid Ip Address".to_string())
+        );
     }
 
     #[test]

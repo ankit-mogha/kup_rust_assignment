@@ -1,7 +1,7 @@
 #[derive(PartialEq, Debug)]
 ///Quadrants Enum.
 ///
-/// Quadrants enum have six variants.
+/// #variants.
 ///
 /// First : includes an anonymous struct inside it.
 /// Second : includes an anonymous struct inside it.
@@ -18,7 +18,7 @@ pub enum Quadrants {
     Origin { abscissa: i32, ordinate: i32 },
     Axis { abscissa: i32, ordinate: i32 },
 }
-/// ques1_fn function checks on which quadrants the points lies.
+/// check_coordinates_quadrant function checks on which quadrants the points lies.
 ///
 /// #Arguments
 ///
@@ -27,7 +27,7 @@ pub enum Quadrants {
 /// #Return
 ///
 /// Returns Quadrants(Enum) type
-pub fn ques1_fn(pts: (i32, i32)) -> Quadrants {
+pub fn check_coordinates_quadrant(pts: (i32, i32)) -> Quadrants {
     match pts {
         (x, y) if x > 0 && y > 0 => Quadrants::First {
             abscissa: x,
