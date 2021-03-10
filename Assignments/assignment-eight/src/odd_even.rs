@@ -1,4 +1,4 @@
-/// check_num function checks on which quadrants the points lies.
+/// check_num function checks number and handles Result enum.
 ///
 /// #Arguments
 ///
